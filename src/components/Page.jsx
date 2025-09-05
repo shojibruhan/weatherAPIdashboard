@@ -1,11 +1,16 @@
 import React from "react";
+import Header from "./header/Header";
+import WeaterhBoard from "./weather/WeaterhBoard";
 
 const Page = () => {
   return (
-    <div>
-      <h1 className=" text-3xl text-cyan-700 font-semibold text-center">
-        Helllo
-      </h1>
+    <div className="grid place-items-center h-screen">
+      <Header />
+      <main>
+        <section>
+          <WeaterhBoard />
+        </section>
+      </main>
     </div>
   );
 };
