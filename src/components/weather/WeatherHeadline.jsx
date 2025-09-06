@@ -3,15 +3,17 @@ import CloudIcon from "../../assets/cloud.svg";
 import HazeIcon from "../../assets/haze.svg";
 import SnowIcon from "../../assets/icons/snow.svg";
 import SunnyIcon from "../../assets/icons/sunny.svg";
+import PinIcon from "../../assets/pin.svg";
 import RainIcon from "../../assets/rainy.svg";
 import ThunderIcon from "../../assets/thunder.svg";
-
-import PinIcon from "../../assets/pin.svg";
 import { WeatherContext } from "../../context";
 import { getFormatedDate } from "../../utils/date-utils";
+
 const WeatherHeadline = () => {
   const { weatherData } = useContext(WeatherContext);
-  const { climate, temperature, location, time } = weatherData;
+  const { climate, temperature, location, time, latitude, longitude } =
+    weatherData;
+  console.log(latitude, longitude, location);
 
   const getWeatherIcon = (climate) => {
     switch (climate) {
