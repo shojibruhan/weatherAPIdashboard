@@ -52,6 +52,7 @@ const useWeather = () => {
         temperature: data?.main?.temp,
         maxTemperature: data?.main?.temp_max,
         minTemperature: data?.main?.temp_min,
+        feelsTemp: data?.main?.feels_like,
         humidity: data?.main?.humidity,
         cloudePercentage: data?.clouds?.all,
         wind: data?.wind?.speed,

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CloudIcon from "../../assets/icons/cloud.svg";
+import FeelsLike from "../../assets/icons/feelsLike.svg";
 import HumidityIcon from "../../assets/icons/humidity.svg";
 import TempMaxIcon from "../../assets/icons/temp-max.svg";
 import TempMinIcon from "../../assets/icons/temp-min.svg";
@@ -15,6 +16,7 @@ const WeatherCondition = () => {
     cloudePercentage,
     wind,
     climate,
+    feelsTemp,
   } = weatherData;
 
   return (
@@ -56,6 +58,13 @@ const WeatherCondition = () => {
           <div className="inline-flex space-x-4">
             <p>{wind}km/h</p>
             <img src={WindIcon} alt="wind" />
+          </div>
+        </li>
+        <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
+          <span>Feels Like</span>
+          <div className="inline-flex space-x-4">
+            <p>{feelsTemp}°</p>
+            <img src={FeelsLike} alt="wind" className="w-6 h-6" />
           </div>
         </li>
       </ul>
