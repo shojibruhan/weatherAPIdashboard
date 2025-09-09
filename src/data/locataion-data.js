@@ -32,13 +32,22 @@ const data = [
     longitude: -79.3839347,
   },
   {
-    location: "Uttara",
-    latitude: 23.779372,
-    longitude: 90.39872,
+    location: "Greenland",
+    latitude: 42.6043,
+    longitude: 71.7069,
+  },
+  {
+    location: "Alaska",
+    latitude: 63.5888,
+    longitude: 154.4931,
+  },
+  {
+    location: "Australia",
+    latitude: 25.2744,
+    longitude: 133.7751,
   },
 ];
-// 23.779372, 90.39872;
-
+// 25.2744, 133.7751
 const getLocations = () => {
   return data;
 };
