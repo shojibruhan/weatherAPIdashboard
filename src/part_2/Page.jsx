@@ -1,16 +1,63 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import WeatherBoard from "./components/weather/WeatherBoard";
 import { WeatherContext } from "./context";
 
+import ClearSkyImage from "../assets/backgrounds/clear-sky.jpg";
+import FewCloudsImage from "../assets/backgrounds/few-clouds.jpg";
+import MistImage from "../assets/backgrounds/mist.jpeg";
+import RainyDayImage from "../assets/backgrounds/rainy-day.jpg";
+import ScatterdCloudsImage from "../assets/backgrounds/scattered-clouds.jpg";
+import SnowImage from "../assets/backgrounds/sunny.jpg";
+import ThunderStormImage from "../assets/backgrounds/thunderstorm.jpg";
+import WinterImage from "../assets/backgrounds/winter.jpg";
+
 const Page = () => {
-  const { loading } = useContext(WeatherContext);
+  const [climageImage, setClimateImage] = useState();
+  const { weatherData, loading } = useContext(WeatherContext);
+  console.log(weatherData.climate, climageImage);
+
+  const getBackgroundImage = (climate) => {
+    switch (climate) {
+      case "Rain":
+        return RainyDayImage;
+      case "Clouds":
+        return ScatterdCloudsImage;
+      case "Clear":
+        return ClearSkyImage;
+      case "Snow":
+        return SnowImage;
+      case "Thunder":
+        return ThunderStormImage;
+      case "Fog":
+        return WinterImage;
+      case "Haze":
+        return FewCloudsImage;
+      case "Mist":
+        return MistImage;
+      default:
+        return ClearSkyImage;
+    }
+  };
+
+  useEffect(() => {
+    const backgroundImage = getBackgroundImage(weatherData.climate);
+    setClimateImage(backgroundImage);
+  }, [weatherData.climate]);
+
   return (
     <>
       {loading.state ? (
-        <p>{loading.message}</p>
+        <div className="bg-gray-200 flex rounded-md w-96 mt-14 mx-auto p-8">
+          <p className="text-center text-3xl text-black ">{loading.message}</p>
+        </div>
       ) : (
-        <div className="grid h-screen place-items-center">
+        <div
+          style={{
+            backgroundImage: `url(${climageImage})`,
+          }}
+          className="grid place-items-center h-screen bg-no-repeat bg-cover"
+        >
           <Header />
           <main>
             <section>

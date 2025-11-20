@@ -71,7 +71,7 @@ const useWeather = () => {
 
   useEffect(() => {
     setLoading({
-      // ...loading,
+      ...loading,
       state: true,
       message: "Finding location. . .",
     });
