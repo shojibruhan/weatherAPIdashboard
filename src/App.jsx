@@ -1,6 +1,10 @@
 import React from "react";
 import Page from "./part_2/Page";
-import { FavaouriteProvider, WeatherProvider } from "./part_2/Provider";
+import {
+  FavaouriteProvider,
+  LocationProvider,
+  WeatherProvider,
+} from "./part_2/Provider";
 // import {LocationProvider } from './provider/LocationProvider';
 // import {
 //   FavouriteProvider,
@@ -19,11 +23,13 @@ const App = () => {
           </FavouriteProvider>
         </WeatherProvider>
       </LocationProvider> */}
-      <WeatherProvider>
-        <FavaouriteProvider>
-          <Page />
-        </FavaouriteProvider>
-      </WeatherProvider>
+      <LocationProvider>
+        <WeatherProvider>
+          <FavaouriteProvider>
+            <Page />
+          </FavaouriteProvider>
+        </WeatherProvider>
+      </LocationProvider>
     </>
   );
 };
