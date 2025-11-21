@@ -15,7 +15,6 @@ import WinterImage from "../assets/backgrounds/winter.jpg";
 const Page = () => {
   const [climageImage, setClimateImage] = useState();
   const { weatherData, loading } = useContext(WeatherContext);
-  console.log(weatherData.climate, climageImage);
 
   const getBackgroundImage = (climate) => {
     switch (climate) {
